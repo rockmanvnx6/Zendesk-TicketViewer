@@ -53,6 +53,6 @@ function connect(base64auth, appres, link) {
         } else {
             appres.redic
             appres.render('tickets', {data: res.body});
-        }      
+        }
       });
 }
