@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Zendesk Ticket Token</title>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.7.5/css/bulma.min.css">
+    <script defer src="https://use.fontawesome.com/releases/v5.3.1/js/all.js"></script>
+</head>
+<body>
+    <section class="section">
+            <h1 class="title"><%= data.title %></h1>
+            <div class="field">
+                <div class="notification is-warning">
+                    <% if (data.status == 200) {%>
+                        <span> Please login to see the tickets. </span>
+                    <% } else if(data.status == 401) {%>
+                        <span> Authentication Error, please check your login details</span>
+                    <% } else { %>
+                        <span> Unknown error </span>
+                    <% } %>
+                </div>
+            </div>
+            <form method="POST" action="/">
+                <div class="field">
+                    <label class="label"> Zendesk link: </label>
+                    <div class="control">
+                        <input type="text" name="link" class="input" value="https://austinpham.zendesk.com">
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label"> Email </label>
+                    <div class="control has-icons-left">
+                        <input type="text" name="email" class="input" placeholder="Your email">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-envelope"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="field">
+                    <label class="label"> Password </label>
+                    <div class="control has-icons-left">
+                        <input type="password" name="password" class="input" placeholder="Your password">
+                        <span class="icon is-small is-left">
+                            <i class="fas fa-lock"></i>
+                        </span>
+                    </div>
+                </div>
+                <div class="field">
+                    <div class="control">
+                        <button class="button"> Sign in </button>
+                    </div>
+                </div>
+            </form>
+    </section>
+</body>
+
